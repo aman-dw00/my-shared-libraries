@@ -12,22 +12,4 @@ def call() {
             sh "go build"
         }
     }
-
-    post {
-        always {
-            script {
-                emailext(
-                    subject: "Build Status - ${currentBuild.fullDisplayName}",
-                    body: """The build status for ${currentBuild.fullDisplayName} is as follows:
-
-                    Build Log URL: ${BUILD_URL}console
-
-                    Regards,
-                    Jenkins
-                    """,
-                    to: "aman.raj@mygurukulam.co"
-                )
-            }
-        }
-    }
 }
