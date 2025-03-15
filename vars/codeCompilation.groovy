@@ -1,4 +1,4 @@
-def call(Map conf = [:]) {
+def call() {
     pipeline {
         agent any
 
@@ -8,9 +8,9 @@ def call(Map conf = [:]) {
 
         environment {
             REPORT_FILE = "compile_report.txt"
-            branch_name = conf.branch ?: 'main'
-            repo_url = conf.repo ?: 'https://github.com/OT-MICROSERVICES/employee-api.git'
-            email_recipients = config.email ?: "aman.raj@mygurukulam.co"
+            branch_name = 'main'
+            repo_url = 'https://github.com/OT-MICROSERVICES/employee-api.git'
+            email_recipients = "aman.raj@mygurukulam.co"
         }
 
         stages {
